@@ -1,0 +1,9 @@
+{
+  "name": "devops-node-app",
+  "version": "1.0.0",
+  "description": "Node.js DevOps deployment project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
