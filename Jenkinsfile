@@ -6,7 +6,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Getting source code from GitHub'
+                echo 'Checking out code from GitHub'
                 checkout scm
             }
         }
@@ -26,9 +26,17 @@ pipeline {
         stage('Verify Application') {
             steps {
                 sh 'curl -f http://127.0.0.1:3000'
-                echo 'Application deployed successfully!'
             }
         }
     }
-}
 
+    post {
+        success {
+            echo 'Application deployed successfully!'
+        }
+
+        failure {
+            echo 'Deployment failed. Check console output.'
+        }
+    }
+}
